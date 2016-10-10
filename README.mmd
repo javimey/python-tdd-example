@@ -6,3 +6,9 @@ To run the image
 
 docker run -p 8888:5000 pytester
 
+Display the log lovely
+git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+
+In reverse order
+git log  --pretty=format:'%Cred%h%Creset%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --reverse
