@@ -8,6 +8,6 @@ def name_formatter(name):
     :returns: name in a proper format
 
     """
-    return "Javier Mey"
+    return name.title()
 
 
