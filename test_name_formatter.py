@@ -1,14 +1,22 @@
 import unittest
 from name_formatter import name_formatter
 
-class TesNameFormatter(unittest.TestCase):
+class NameFormatterTest(unittest.TestCase):
+  def setUp(self):
+    self.verificationErrors = []
 
-    """ 
-    Test case number 1
-    """
-    def test_name_formatter(self):
-        res = name_formatter("javier mey")
-        self.assertTrue(res, "Javier Mey")
+  def tearDown(self):
+    self.assertEqual([], self.verificationErrors)
 
-if __name__ == '__main__':
+  def test_init(self):
+    try: self.assertEqual(name_formatter("javier mey"), "Javier Mey")
+    except AssertionError as e: self.verificationErrors.append(str(e))
+    try: self.assertEqual(name_formatter("DoyChin DoyCHev"), "Doychin Doychev")
+    except AssertionError as e: self.verificationErrors.append(str(e))
+    try: self.assertEqual(name_formatter("javier MEY"), "Javier Mey")
+    except AssertionError as e: self.verificationErrors.append(str(e))
+    try: self.assertEqual(name_formatter("JAVIER MEY"), "Javier Mey")
+    except AssertionError as e: self.verificationErrors.append(str(e))
+
+if __name__ == "__main__":
     unittest.main()
